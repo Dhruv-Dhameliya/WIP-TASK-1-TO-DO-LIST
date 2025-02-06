@@ -174,6 +174,19 @@ function editTodo(e) {
     update();
     addinmain(todoList);
   });
+
+inputField.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      var newTaskText = inputField.value;
+      todoList.forEach((task) => {
+        if (task.id === taskId) {
+          task.task = newTaskText;
+        }
+      });
+      update();
+      addinmain(todoList);
+    }
+  });
 }
 
 function viewCompleted() {
